@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "notify-app",
+    "slug": "notify-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "notify-app"
+}

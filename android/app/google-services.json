@@ -1,26 +1,36 @@
 {
   "project_info": {
-    "project_number": "742214982528",
-    "project_id": "notify-app-6d28c",
-    "storage_bucket": "notify-app-6d28c.appspot.com"
+    "project_number": "260594870079",
+    "project_id": "rds-backend-86606",
+    "storage_bucket": "rds-backend-86606.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:742214982528:android:604d05fb9369f0a441ff65",
+        "mobilesdk_app_id": "1:260594870079:android:96f715af50676f7a53958a",
         "android_client_info": {
           "package_name": "com.notifyapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "260594870079-jk3ak4lbadk26m6hlh16gi1rk4kd7nmb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAK8FqRXdbmCrqHCOO5IwVPluyFcCc_GXw"
+          "current_key": "AIzaSyBB8iJ4Oi-WD9Ps3tBIipoy9yL4sgesh24"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260594870079-jk3ak4lbadk26m6hlh16gi1rk4kd7nmb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

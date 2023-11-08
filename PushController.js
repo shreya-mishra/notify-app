@@ -11,21 +11,20 @@ export async function requestUserPermission() {
     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
 
   if (enabled) {
-    console.log('Authorization status:', authStatus);
     getFCMToken()
   }
 
 }
- async function getFCMToken() {
+async function getFCMToken() {
 
   let fcmtoken = await AsyncStorage.getItem("fcmtoken");
-  console.log('fcmtoken', fcmtoken)
   try {
     if (!fcmtoken) {
       const fcmToken_ = await firebase.messaging().getToken();
+      console.log('fcmToken_', fcmToken_)
 
-      AsyncStorage.setItem("fcmtoken", fcmToken_);
     } else {
+      //
       console.log('inside else')
     }
   } catch (error) {
@@ -33,8 +32,16 @@ export async function requestUserPermission() {
   }
 
 }
+
 export const notificationListener = () => {
-  console.log('inside notification listener')
+  messaging().onMessage((notification) => {
+    if (notification) {
+      const { title, body } = notification;
+
+      console.log('msg here', { title, body });
+    }
+
+  });
   messaging().onNotificationOpenedApp(remoteMessage => {
     console.log('inside on notification open app')
     console.log(
@@ -42,16 +49,21 @@ export const notificationListener = () => {
       remoteMessage.notification,
     );
   });
-messaging().getInitialNotification().then(remoteMessage =>{
-  if(remoteMessage){
-    console.log('notification caused app to open from quit state',remoteMessage.notification)
-  }
-})
+  messaging().getInitialNotification().then(remoteMessage => {
+    if (remoteMessage) {
+      console.log('notification caused app to open from quit state', remoteMessage.notification)
+    }
+  })
 
-messaging().onMessage(async remoteMessage =>{
-  console.log("notification on foreground state.....", remoteMessage)
-})
+  messaging().onMessage(async remoteMessage => {
+    console.log("notification on foreground state.....", remoteMessage)
+  })
+  messaging().setBackgroundMessageHandler(async remoteMessage => {
+    console.log('msg handled in the background', remoteMessage)
+  })
 
 
 }
 
+// FCM LIB --> SEND
+// REFRESH fcm TOKEN 
